@@ -1,0 +1,9 @@
+﻿@model IEnumerable<string>
+
+@foreach (string category in Model) {
+    <a class="font-weight-bold btn btn-outline-light" @*btn-sm btn-secondary"*@
+       asp-action="List"
+       asp-controller="Home">
+        @category
+    </a>
+}

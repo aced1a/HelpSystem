@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet"
+          asp-href-include="/lib/bootstrap/css/**/*.min.css"
+          asp-href-exclude="**/*-reboot*,**/*-grid*" />
+    <title>Info System</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-inverse" role="navigation"> 
+        <a class="navbar-brand" asp-action="Index" asp-controller="Home" > Info System </a>
+        <div class="collapse navbar-collapse justify-content-end">
+            @await Component.InvokeAsync("NavigationBar")
+        </div>
+     </nav>
+     <div class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div id="categories" class="collapse navbar-collapse justify-content-center text-center">
+            @await Component.InvokeAsync("NavigationMenu")
+        </div>
+     </div>
+
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
