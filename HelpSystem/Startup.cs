@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
+using HelpSystem.Infrastructure.Services;
 
 namespace HelpSystem
 {
@@ -15,8 +17,12 @@ namespace HelpSystem
         {
             services.AddMvc(options => options.EnableEndpointRouting = false);
 
-            //services.AddDbContext<ApplicationContext>(options =>
-            //    options.UseSqlServer(Configuration["Data:HelpSystem:ConnectionString"]));
+            services.AddDbContext<HelpSystem.Infrastructure.ApplicationDbContext>(options =>
+                options.UseSqlServer("Data Source=DESKTOP-767L0O2\\SQLEXPRESS;initial catalog=help_system;integrated security=True;MultipleActiveResultSets=True;"));
+                    //Configuration.GetConnectionString("default")));
+
+            services.AddTransient<IRequestSender, RequestSender>();
+            //services.AddSingleton<IRequestSender, RequestSender>();
             //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //services.AddSession();
         }
