@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Category>
+
+<ui class="list-group">
+@foreach(var category in Model ?? Enumerable.Empty<Category>()) {
+    <li class="list-group-item category-list-item" id="list-id-@category.Id" level="1">
+        <a class="font-weight-bold btn category-button" > 
+            <input type="hidden" name="id" value="@category.Id" />
+            <input type="hidden" name="name" value="@category.Name" />
+            @category.Name 
+        </a>
+    </li>
+}
+</ui>

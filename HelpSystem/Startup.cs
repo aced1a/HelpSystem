@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 using HelpSystem.Infrastructure.Services;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 
 namespace HelpSystem
 {
@@ -15,6 +17,11 @@ namespace HelpSystem
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews()
+                .AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+
             services.AddMvc(options => options.EnableEndpointRouting = false);
 
             services.AddDbContext<HelpSystem.Infrastructure.ApplicationDbContext>(options =>
@@ -45,6 +52,8 @@ namespace HelpSystem
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             }); 
+
+            
         }
     }
 }

@@ -1,0 +1,22 @@
+﻿@model EditArticleViewModel
+
+<h1> Editing @Model.Article.Category.Name </h1>
+
+<div id="edit-category">
+    <form>
+
+    </form>
+</div>
+
+<div id="edit-article">
+    <form id="article-edit" method="post" asp-action="Save" asp-controller="Article">
+        <input type="hidden" name="id" value="@Model.Article.Id"/>
+        <input type="hidden" name="categoryId" value="@Model.Article.Category.Id"/>
+        <textarea name="body" class="form-control" rows="20" cols="60" form="article-edit">
+            @Model.Article.Body
+        </textarea>
+
+        <button class="btn"
+            type="submit"> Save </button>
+    </form>
+</div>

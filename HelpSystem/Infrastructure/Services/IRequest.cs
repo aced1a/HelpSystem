@@ -1,6 +1,4 @@
 ﻿namespace HelpSystem.Infrastructure.Services
 {
-    public interface IRequest<T>
-    {
-    }
+    public interface IRequest<T> { }
 }

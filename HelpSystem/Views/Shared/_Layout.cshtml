@@ -5,6 +5,13 @@
     <link rel="stylesheet"
           asp-href-include="/lib/bootstrap/css/**/*.min.css"
           asp-href-exclude="**/*-reboot*,**/*-grid*" />
+    <script
+        asp-src-include="/lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript"
+        asp-src-include="/js/CategoryRequests.js"> </script>
+     <link rel="stylesheet"
+         asp-href-include="/css/Style.css" />
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:weight@100;200;300;400;500;600;700;800&display=swap" />
     <title>Info System</title>
 </head>
 <body>
@@ -15,11 +22,10 @@
         </div>
      </nav>
      <div class="navbar navbar-expand-lg navbar-light bg-primary">
-        <div id="categories" class="collapse navbar-collapse justify-content-center text-center">
+        <div class="collapse navbar-collapse justify-content-center text-center">
             @await Component.InvokeAsync("NavigationMenu")
         </div>
      </div>
-
     <div>
         @RenderBody()
     </div>

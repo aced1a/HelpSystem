@@ -1,0 +1,58 @@
+﻿@model CategoryViewModels
+
+<div id="add-category-background"> </div>
+<div id="add-category-form">
+    <form class="from-group" method="post" asp-controller="Article" asp-action="Create">
+        <label for="name"> Введите имя категории: </label>
+        <input type="text" name="name" class="form-control"/>
+        <input type="hidden" name="parentId" value="@Model.Category.Id" />
+
+        <button class="btn" type="submit">
+            Создать
+        </button>
+    </form>
+</div>
+
+<div class="row m-1 p-1">
+    <div id="categories" class="col-3">
+        @Html.Partial("Categories", Model.Subcategories)
+    </div>
+    <div class="col-9">
+        <h1 id="article-header"> @Model.Category.Name </h1>
+        <hr/>
+        <div id="article-info" class="d-flex flex-row justify-content-between">
+            <div id="article-path"> 
+                @await Component.InvokeAsync("CategoryFullName", Model.Category.Id)
+            </div>
+            <div class="article-edit-panel">
+                <input type="hidden" name="categoryId" value="@Model.Category.Id"/>
+
+                <a class="article-info-btn" id="add-category"> Add </a>
+                <form method="get" asp-controller="Article" asp-action="Edit"> 
+                    <input type="hidden" name="categoryId" value="@Model.Category.Id" />
+                    <button class="article-info-btn btn btn-link"> Edit </button>
+                </form>
+                <form method="post"  asp-controller="Article" asp-action="Delete"> 
+                    <input type="hidden" name="categoryId" value="@Model.Category.Id" />
+                    <button id="delete-category" class="article-info-btn btn btn-link" > Delete </button>
+                </form>
+
+
+                @*<a class="article-info-btn" asp-controller="Article" asp-action="Edit" asp-route-categoryId="@Model.Category.Id" > Edit </a>
+                <a class="article-info-btn" id="delete-category"
+                    asp-controller="Article" asp-action="Delete" asp-route-categoryId="@Model.Category.Id"> 
+                    Delete *@
+                </a>
+            </div>
+        </div>
+        <div id="article">
+            @if(@Model.Article?.Body != null) {
+                @Html.Raw(@WebUtility.HtmlDecode(@Model.Article.Body))
+            } else
+            {
+                <span> Содержимое отсутствует </span>
+            }
+        </div>
+    </div>
+</div>
+<script> register() </script>

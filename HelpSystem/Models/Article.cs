@@ -6,7 +6,7 @@ namespace HelpSystem.Models
     public class Article
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public DateTime CreatedAt { get; set; }
         public string? Body { get; set; }
        

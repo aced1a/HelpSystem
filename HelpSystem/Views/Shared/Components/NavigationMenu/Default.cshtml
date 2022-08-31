@@ -1,9 +1,12 @@
-﻿@model IEnumerable<string>
+﻿@model IEnumerable<Category>
 
-@foreach (string category in Model) {
-    <a class="font-weight-bold btn btn-outline-light" @*btn-sm btn-secondary"*@
-       asp-action="List"
-       asp-controller="Home">
-        @category
-    </a>
+@foreach (var category in Model) {
+    <form asp-action="Index" method="get" asp-controller="Category">
+        <input type="hidden" name="id" value="@category.Id" />
+        <input type="hidden" name="name" value="@category.Name" />
+        
+        <button type="submit" class="font-weight-bold btn btn-outline-light nav-button"> 
+            @category.Name
+        </button>
+    </form>
 }

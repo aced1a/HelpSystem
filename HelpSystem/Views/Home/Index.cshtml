@@ -1,9 +1,31 @@
 ﻿@model IEnumerable<String>
 
-<ui class="list-group">
-    @foreach(var s in Model) {
-        <li class="list-group-item"> 
-            @s
-        </li>
-    }
-</ui>
+
+<div class="container-fluid bg-primary">
+
+    <div class="row height d-flex justify-content-center align-items-center">
+
+        <h1 class="home-header"> Поиск - это просто, <br/> попробуйте прямо сейчас </h1>
+
+        <div class="col-md-8">
+            <div class="search">
+                <i class="fa fa-search"></i>
+                <input type="text" class="form-control" placeholder="Введите запрос для поиска">
+                <button class="btn btn-primary">Search</button>
+            </div>
+        </div>               
+    </div>
+</div>
+<footer>
+    <div class="container">
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+        </ul>
+        <p class="text-center text-muted">&copy; 2022 Company, Inc</p>
+      </footer>
+    </div>
+</footer>

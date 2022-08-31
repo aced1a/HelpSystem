@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Category>
+
+
+@foreach(var category in Model.Reverse()) {
+    <a class="article-path-btn">
+        <input type="hidden" name="id" value="@category.Id" />
+        @category.Name
+    </a>
+    <span> / </span>
+}

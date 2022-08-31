@@ -5,6 +5,6 @@ namespace HelpSystem.Infrastructure.Services.CategoryServices.Requests
     public class CreateCategoryCommand : IRequest<Category>
     { 
         public string Name { get; set; }
-        public Category Parent { get; set; }
+        public int? ParentId { get; set; }
     }
 }

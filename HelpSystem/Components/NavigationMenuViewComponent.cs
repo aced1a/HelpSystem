@@ -18,7 +18,7 @@ namespace HelpSystem.Components
         {
             var result = _sender.Send<GetMainCategoriesQuery, IEnumerable<Category>>(new GetMainCategoriesQuery());
 
-            return View(result.Select(c => c.Name));
+            return View(result);
             //return View(new List<String>() { "C#", "EF Core", "ASP.NET", "WPF" });
         }
     }

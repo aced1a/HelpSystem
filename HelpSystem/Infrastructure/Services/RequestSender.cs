@@ -36,7 +36,9 @@ namespace HelpSystem.Infrastructure.Services
         {
             container.Register(Classes.FromAssemblyNamed("HelpSystem")
                                 .BasedOn(typeof(IRequestHandler<,>))
-                                .WithService.FirstInterface());
+                                .WithService.FirstInterface()
+                                .LifestyleTransient());
+                                
         }
     }
 
